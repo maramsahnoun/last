@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.css" rel="stylesheet">
+   
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Dashboard</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-page="produit">
+                    <i class="fas fa-box"></i>
+                    <span>Produit disponible</span>
+                </button>
+                <button class="nav-item" data-page="achat">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Achat</span>
+                </button>
+                <button class="nav-item" data-page="retour">
+                    <i class="fas fa-undo"></i>
+                    <span>Retour</span>
+                </button>
+                <button class="nav-item" data-page="montant">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Montant à payer</span>
+                </button>
+               
+                <button class="nav-item" data-page="statistique">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Statistique</span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logoutButton">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Déconnexion</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Chatbot Section -->
+            <div class="chatbot-section">
+                <div class="chatbot-header">
+                    <h3>Assistant Virtuel</h3>
+                    <button id="voiceChatButton">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+                <div class="chatbot-messages" id="chatbotMessages">
+                    <!-- Messages will be added here dynamically -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Tapez votre message...">
+                    <button id="sendMessageButton">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <button id="imageUploadButton">
+                        <i class="fas fa-image"></i>
+                    </button>
+                    <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                    <button id="voiceChatButton">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Pages -->
+            <div class="content-pages">
+                <!-- Achat Page -->
+                <div class="page " id="achat-page">
+                    <h2>Achats</h2>
+                    <div class="table-container">
+                        <table id="achat-table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Produit</th>
+                                    <th>Quantité</th>
+                                    <th>Prix unitaire</th>
+                                    <th>Prix total</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img src="https://th.bing.com/th/id/R.88f55b3bea4ba2de71917167463cb2c6?rik=RcSKVJgFwLGGHQ&pid=ImgRaw&r=0" alt="T-shirt en Coton" alt="T-shirt en Coton"></td>
+                                    <td>T-shirt en Coton</td>
+                                    <td>3</td>
+                                    <td>19 DT</td>
+                                    <td>57 DT</td>
+                                    <td>2023-10-01</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://images.selfridges.com/is/image/selfridges/R04255808_BLEUS_M?$PLP_ALL$" alt="Pantalon en Jean"></td>
+                                    <td>Pantalon en Jean</td>
+                                    <td>2</td>
+                                    <td>39DT</td>
+                                    <td>78DT</td>
+                                    <td>2023-10-02</td>
+                                </tr>
+                              
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Retour Page -->
+                <div class="page" id="retour-page">
+                    <h2>Retours</h2>
+                    <div class="table-container">
+                        <table id="retour-table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Produit</th>
+                                    <th>Quantité</th>
+                                    <th>Prix unitaire</th>
+                                    <th>Prix total</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img src="https://th.bing.com/th/id/R.88f55b3bea4ba2de71917167463cb2c6?rik=RcSKVJgFwLGGHQ&pid=ImgRaw&r=0" alt="T-shirt en Coton" alt="T-shirt en Coton"></td>
+                                    <td>T-shirt en Coton</td>
+                                    <td>1</td>
+                                    <td>19 DT</td>
+                                    <td>19 DT</td>
+                                    <td>2023-10-01</td>
+                                </tr><!-- Data will be added dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Montant Page -->
+                <div class="page" id="montant-page">
+                    <h2>Montant à payer</h2>
+                    <div class="montant-container">
+                        <div class="montant-card">
+                            <h3>Total à payer</h3>
+                            <p class="montant-value">0.00 DT</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Produit Page -->
+                <div class="page active" id="produit-page">
+                    <h2>Produits disponibles</h2>
+                    
+                    <div class="table-container">
+                        <table id="produit-table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Nom</th>
+                                    <th>Quantité</th>
+                                    <th>Prix</th>
+                                    <th>ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img src="https://th.bing.com/th/id/R.88f55b3bea4ba2de71917167463cb2c6?rik=RcSKVJgFwLGGHQ&pid=ImgRaw&r=0" alt="T-shirt en Coton"></td>
+                                    <td>T-shirt en Coton</td>
+                                    <td>50</td>
+                                    <td>19DT</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://images.selfridges.com/is/image/selfridges/R04255808_BLEUS_M?$PLP_ALL$"></td>
+                                    <td>Pantalon en Jean</td>
+                                    <td>30</td>
+                                    <td>39DT</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://th.bing.com/th/id/OIP.AZLGwc3JjVIWWB_7E4bVvAHaLH?rs=1&pid=ImgDetMain" alt="Veste en Cuir"></td>
+                                    <td>Veste en Cuir</td>
+                                    <td>20</td>
+                                    <td>190DT</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://images-na.ssl-images-amazon.com/images/I/71vnRkzfkML._UL1500_.jpg" alt="Chaussures de Sport"></td>
+                                    <td>Chaussures de Sport</td>
+                                    <td>15</td>
+                                    <td>250DT</td>
+                                    <td>4</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Statistique Page -->
+                <div class="page" id="statistique-page">
+                    <h2>Statistiques</h2>
+                    <div class="stat-summary" style="margin: 1rem 0; font-size: 1.2rem; font-weight: bold;">
+                        <p id="ratioStatistique">Ratio Achat/Retour : ...</p>
+                    </div>
+                    <div class="stat-filters">
+                        <button class="filter-btn active" data-period="day">Jour</button>
+                        <button class="filter-btn" data-period="week">Semaine</button>
+                        <button class="filter-btn" data-period="month">Mois</button>
+                        <button class="filter-btn" data-period="total">Total</button>
+                    </div>
+                    <div class="charts-container">
+                        <div class="chart-card">
+                            <h3>Achats vs Retours</h3>
+                            <canvas id="achatRetourChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Produits les plus vendus</h3>
+                            <canvas id="topProductsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+</body>
+</html> 
